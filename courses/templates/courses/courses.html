@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses</title>
+</head>
+<body>
+    {% for course in object_list %}
+        <p>{{ course.name }}</p>
+        {% for task in course.tasks.all %}
+            <p>{{ task.number }}: {{ task.description }}</p>
+
+            {% for solution in task.solutions.all %}
+                <p>{{ solution.user }}: {{ solution.text }}</p>
+            {% endfor %}
+        {% endfor %}
+        --------------------------------------
+    {% endfor %}
+</body>
+</html>
